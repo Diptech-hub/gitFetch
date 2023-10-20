@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "./home.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SingleRepo from "./singleRepo";
 
 function Home() {
   const [repos, setRepos] = useState([]);
+
 
   useEffect(() => {
     async function fetchRepos() {
@@ -27,8 +28,8 @@ function Home() {
       <h1>My GitHub Repositories</h1>
       <nav>
         {repos.map((repo) => (
-          <button key={repo.id} onClick={SingleRepo}>
-            <NavLink to={`./singleRepo.jsx/${repo.name}`}>{repo.name}</NavLink>
+          <button key={repo.id}>
+          <Link to={`${repo.name}`} onClick={SingleRepo}>{repo.name}</Link>
           </button>
         ))}
       </nav>
