@@ -1,13 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
+
+import ErrorBoundary from "./views/errorBoundary";
+import Home from "./views/home";
+import SingleRepo from "./views/singleRepo";
+
+const routes = [
+  {
+    element: <ErrorBoundary />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/click",
+        element: <SingleRepo />,
+      }
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );

@@ -1,42 +1,44 @@
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
+import "./home.css";
 
-function SingleRepo(){
-  const { id } = useParams();
-  const [repoInfo, setRepoInfo] = useState(null);
+function SingleRepo() {
+  // const [repos, setRepos] = useState([]);
+  // const [selectedRepo, setSelectedRepo] = useState(null);
+  const [selectedRepo, setRepos] =useState({});
 
-    // Fetch repository information for the selected repo using the repo ID
-    // Update the repoInfo state with the fetched data
-    useEffect(() => {
-      async function fetchRepos() {
-        try {
-          const response = await fetch(
-            "https://api.github.com/users/diptech-hub/repos"
-          );
-          const data = await response.json();
-          setRepoInfo(data);
-        } catch (error) {
-          console.log(error);
-        }
+  useEffect(() => {
+    async function fetchRepos() {
+      try {
+        const response = await fetch(
+          "https://api.github.com/users/diptech-hub/repos"
+        );
+        const data = await response.json();
+        setRepos(data);
+      } catch (error) {
+        console.log(error);
       }
-  
-      fetchRepos();
-  }, [id]);
+    }
 
-  return (
+    fetchRepos();
+  }, []);
+
+  // const handleRepoClick = (repo) => {
+  //   setSelectedRepo(repo);
+  // };
+
+  return(
     <div>
-      {repoInfo ? (
-        <>
-          <h2>{repoInfo.name}</h2>
-          <p>{repoInfo.description}</p>
-          <p>Stars: {repoInfo.stargazers_count}</p>
-          <p>Language: {repoInfo.language}</p>
+      {selectedRepo && (
+        <div>
+          <h2>{selectedRepo.name}</h2>
+          <p>{selectedRepo.description}</p>
+          <p>Stars: {selectedRepo.stargazers_count}</p>
+          <p>Language: {selectedRepo.language}</p>
           {/* Add more information about the repository here */}
-        </>
-      ) : (
-        <p>Loading...</p>
+        </div>
       )}
     </div>
-  );
+  )
 }
 
 export default SingleRepo;
