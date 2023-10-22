@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./repoDetails.css"
+import "./repoDetails.css";
 
 function RepoDetails() {
   const { id } = useParams();
@@ -24,16 +24,18 @@ function RepoDetails() {
   }, [id]);
 
   return (
-      <div>
-        <h2 className="repodetails">Repo Name: {details.name}</h2>
-        <h2 className="repodetails">Repo Description:{details.description}</h2>
-        <h2 className="repodetails">Repo ID:{details.id}</h2>
-        <h2 className="repodetails">Repo Stargazers_Count: {details.stargazers_count}</h2>
-        <h2 className="repodetails">Repo Forks: {details.forks}</h2>
-        <p>
-          <a href={`https://github.com/${details.full_name}`}>View on Github</a>
-        </p>
-      </div>
+    <div>
+      <h2 className="repodetails">Repo Name: {details.name}</h2>
+      <h2 className="repodetails">Repo Description:{details.description}</h2>
+      <h2 className="repodetails">Repo ID:{details.id}</h2>
+      <h2 className="repodetails">
+        Repo Stargazers_Count: {details.stargazers_count}
+      </h2>
+      <h2 className="repodetails">Repo Forks: {details.forks}</h2>
+      <p>
+        <a href={`https://github.com/${details.full_name}`}>View on Github</a>
+      </p>
+    </div>
   );
 }
 

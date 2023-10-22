@@ -3,7 +3,6 @@ import Home from "./views/home";
 import RepoDetails from "./views/repoDetails";
 import ErrorBoundary from "./views/errorBoundary";
 import ErrorPage from "./views/errorPage";
-// import OutLet from "./views/outLet";
 
 function App() {
   return (
