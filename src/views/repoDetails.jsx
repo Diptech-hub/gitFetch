@@ -38,7 +38,7 @@ function RepoDetails() {
       <h2 className="bodyy">Repo Date: {details.created_at}</h2>
       <h2 className="bodyy">Repo Size: {details.size}</h2>
       <p>
-        <a href={`https://github.com/${details.full_name}`}>View on Github</a>
+        <a href={`https://github.com/${details.full_name}`} >View on Github</a>
       </p>
       <Link to="/">
         <button>
