@@ -1,16 +1,21 @@
-// import { Routes, Route } from "react-router-dom";
-// import Home from "./views/home";
-// import SingleRepo from "./views/singleRepo";
+import { Routes, Route } from "react-router-dom";
+import Home from "./views/home";
+import RepoDetails from "./views/repoDetails";
+import ErrorBoundary from "./views/errorBoundary";
+import ErrorPage from "./views/errorPage";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="{`/SingleRepo/${repo.id}`}" element={<SingleRepo />} />
-//       </Routes>
-//     </div>
-//   );
-// }
+function App() {
+  return (
+    <ErrorBoundary>
+    <div className="App">
+      <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path=":id" element={<RepoDetails />} />
+          <Route path="*" element={<ErrorPage />}/>
+      </Routes>
+    </div>
+    </ErrorBoundary>
+  );
+}
 
-// export default App;
+export default App;

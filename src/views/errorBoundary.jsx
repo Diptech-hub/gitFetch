@@ -1,5 +1,4 @@
-import  { Component } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Component } from "react";
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -13,16 +12,19 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // You can log the error or send it to an error reporting service
-    console.error(error, errorInfo);
+    
+    console.error("Error caught by error boundary:", error, errorInfo);
+    // i use toastify to show error
+    alert("Error caught by error boundary")
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+     
+      return this.props.fallback
     }
 
-    return <Outlet />;
+    return this.props.children;
   }
 }
 

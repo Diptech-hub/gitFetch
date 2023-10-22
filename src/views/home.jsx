@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
-import SingleRepo from "./singleRepo";
+// import RepoDetails from "./repoDetails";
 
 function Home() {
   const [repos, setRepos] = useState([]);
@@ -13,7 +13,7 @@ function Home() {
     async function fetchRepos() {
       try {
         const response = await fetch(
-          "https://api.github.com/users/diptech-hub/repos"
+          `https://api.github.com/users/diptech-hub/repos`
         );
         const data = await response.json();
         setRepos(data);
@@ -29,15 +29,15 @@ function Home() {
   //   setSelectedRepo(repo);
   // };
 
+  // const navigate = useNavigate();
+
   return (
     <div>
       <h1>My GitHub Repositories</h1>
       {repos.map((repo) => (
-        <button key={repo.id}>
-          <Link className="link" to="/click" component={SingleRepo}>
-          {repo.name}
-          </Link>
-        </button>
+        <Link className="link" to={`/repoDetails/${repo.name}`} key={repo.id}>
+          <button>{repo.name}</button>
+        </Link>
       ))}
     </div>
   );

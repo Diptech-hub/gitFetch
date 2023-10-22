@@ -11,7 +11,7 @@
   }
 
   button:hover{
-    background-color: blue;
+    background-color: #329071;
   }
 
   .link{
@@ -20,6 +20,10 @@
 
   .link:hover{
     color: white;
+  }
+
+  h1{
+    color: black;
   }
   
  
