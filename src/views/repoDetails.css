@@ -1,3 +1,14 @@
-.repodetails{
+.bodyy{
     color: black;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.head{
+    font-size: 30px;
+    color: #329071;
+}
+
+.danger:hover{
+   background-color: red;
 }
