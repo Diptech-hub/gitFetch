@@ -3,6 +3,10 @@
 }
 
 p{
-    color: #329071;
+    color: red;
     font-size: large;
+}
+
+Link{
+    color: #329071;
 }

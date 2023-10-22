@@ -1,49 +1,39 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./repoDetails.css"
 
 function RepoDetails() {
-  const { repoID } = useParams();
-  const [repoDetails, setRepoDetails] = useState(null);
-
- 
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
+  const [deployment, setDeployment] = useState({});
 
   useEffect(() => {
-    async function fetchRepos() {
-      try {
-        const response = await fetch(`https://api.github.com/repos/diptech-hub/${repoID}`);
-        const data = await response.json();
-        setRepoDetails(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    fetch(`https://api.github.com/repos/diptech-hub/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDetails(data);
+      });
+  }, [id]);
 
-    fetchRepos();
-  }, [repoID]);
-
-  // useEffect(() => {
-  //   const fetchRepoDetails = async () => {
-  //     const response = await fetch(`https://api.github.com/repos/diptech-hub/${repoID}`);
-  //     const data = await response.json();
-  //     setRepoDetails(data);
-  //   };
-
-
-  //   fetchRepoDetails();
-  // }, [repoID]);
-
-  if (!repoDetails) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/diptech-hub/${id}/deployments`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDeployment(data);
+      });
+  }, [id]);
 
   return (
-    <div>
-      <h1>{repoDetails.name}</h1>
-      <p>{repoDetails.description}</p>
-      <p>Language: {repoDetails.language}</p>
-      <p>Stars: {repoDetails.stargazers_count}</p>
-      {/* Add more details as needed */}
-    </div>
+      <div>
+        <h2 className="repodetails">Repo Name: {details.name}</h2>
+        <h2 className="repodetails">Repo Description:{details.description}</h2>
+        <h2 className="repodetails">Repo ID:{details.id}</h2>
+        <h2 className="repodetails">Repo Stargazers_Count: {details.stargazers_count}</h2>
+        <h2 className="repodetails">Repo Forks: {details.forks}</h2>
+        <p>
+          <a href={`https://github.com/${details.full_name}`}>View on Github</a>
+        </p>
+      </div>
   );
 }
 
