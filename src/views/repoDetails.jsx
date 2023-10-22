@@ -26,7 +26,7 @@ function RepoDetails() {
 
   return (
     <div className="repodetails">
-    <Cpu color="#329071" size={45} />
+      <Cpu color="#329071" size={45} />
       <h2 className="head">{details.name}</h2>
       <h2 className="bodyy">Repo Description:{details.description}</h2>
       <h2 className="bodyy">Repo ID:{details.id}</h2>
@@ -36,11 +36,20 @@ function RepoDetails() {
       <h2 className="bodyy">Repo Forks: {details.forks}</h2>
       <h2 className="bodyy">Repo Language: {details.language}</h2>
       <h2 className="bodyy">Repo Date: {details.created_at}</h2>
+      <h2 className="bodyy">Repo Size: {details.size}</h2>
       <p>
         <a href={`https://github.com/${details.full_name}`}>View on Github</a>
       </p>
-      <Link to='/'><button><ArrowLeft size={20}/></button> </Link>
-      <Link to='*'><button className="danger"><AlertTriangle size={20}/></button> </Link>
+      <Link to="/">
+        <button>
+          <ArrowLeft size={20} />
+        </button>{" "}
+      </Link>
+      <Link to="*">
+        <button className="danger">
+          <AlertTriangle size={20} />
+        </button>{" "}
+      </Link>
     </div>
   );
 }

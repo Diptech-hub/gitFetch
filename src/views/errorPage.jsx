@@ -8,7 +8,7 @@ function ErrorPage() {
     <AlertTriangle color='red' size={60}/>
       <h1>404 - Page Not Found</h1>
       <p>Oops!!! The page you are looking for does not exist.</p>
-      <Link to='/'><button><ArrowLeft size={15}/></button> </Link>
+      <Link to='/'><button><ArrowLeft size={15}/>Home Page</button> </Link>
     </div>
   );
 }
