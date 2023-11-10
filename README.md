@@ -1,6 +1,6 @@
 # GitHub API Fetch Application
 
-This project is a React application that asically fetches data using the GitHub API, such that the list of my GitHub repositories is display. It displays informations about individual repositories when clicked, makes use of nested routes, as an error boundary and custom error 404 page.
+This project is a React application that basically fetches data using the GitHub API, such that the list of my GitHub repositories is displayed. It displays information about individual repositories when clicked, makes use of nested routes, as an error boundary, and custom error 404 page.
 
 ## Technologies Used
 
@@ -9,7 +9,7 @@ This project is a React application that asically fetches data using the GitHub 
 - GitHub API: Used to fetch repository data from GitHub.
 - CSS: Used for styling and creating a visually appealing UI.
 - HTML: The basic boilerplate code to link the JS ans CSS pages
-- Vite: The bundler of Choice
+- Vite: The Bundler of Choice
 - React Feather: A NPM package used to access icons
 
 ## Getting Started
@@ -30,11 +30,11 @@ To get started with the project:
 
 ### Repository Details Page
 
-- Clicking on a repository from the list navigates to a RepoDetails page for that repository.  The RepoDetails page includes additional information about the repository, such as the number of stars, id, and forks and others. Provides a back button to navigate back to the list of repositories and a button to the Error 404 Page.
+- Clicking on a repository from the list navigates to a RepoDetails page for that repository.  The RepoDetails page includes additional information about the repository, such as the number of stars, ID, forks, and others. Provides a back button to navigate back to the list of repositories and a button to the Error 404 Page.
 
 ### Nested Routes
 
-- Made use of React Router to implement nested routes to display the list of repositories and individual repository details.
+- Used React Router to implement nested routes to display the list of repositories and individual repository details.
 
 ### Error Boundary
 
@@ -42,4 +42,4 @@ To get started with the project:
 
 ### 404 Page
 
-- Includes a custom 404 page to handle invalid routes or pages that do not exist. Provides a simple message and an option to navigate back to the home page.
+- Includes a custom 404 page to handle invalid routes or pages that do not exist. It provides a simple message and an option to navigate back to the home page.
